@@ -39,6 +39,14 @@ class User extends Authenticatable
     public function ratings(){
         return $this->hasMany('App\Rating');
     }
+
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
+
+    public function favorites(){
+        return $this->hasMany('App\Favorite');
+    }
     
     public function isAdmin()
     {

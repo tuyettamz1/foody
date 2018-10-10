@@ -69,10 +69,7 @@ Route::group(['prefix'=>'places'],function(){
         Route::post('rating','PlaceController@rating')->name('places.rating');
         Route::get('edit/{id}','PlaceController@edit');
         Route::post('update','PlaceController@update')->name('places.update');
-        Route::post('comment','PlaceController@comment')->name('places.comment');
-        Route::post('comment','PlaceController@comment')->name('places.comment');
-        
-          
+        Route::post('comment','PlaceController@comment')->name('places.comment');                          
     });
 Route::get('them-dia-diem','PlaceController@create')->middleware('auth');
 Route::get('/dia-diem/{slug}','PlaceController@show');
@@ -80,6 +77,14 @@ Route::get('dia-diem/category/{category}','PlaceController@category');
 Route::get('lien-he','HomeController@contact');
 Route::post('lien-he','HomeController@postContact')->name('contact');
 Route::get('gioi-thieu','HomeController@about');
+Route::get('yeu-thich','PlaceController@favorite');
+
+Route::post('favorite','HomeController@favorite')->name('favorite');
+Route::post('unfavorite','HomeController@unfavorite')->name('unfavorite');
 
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');
+
+
+
+

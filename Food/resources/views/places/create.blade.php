@@ -1,8 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
 <hr>
-
-
 <div class="row">
 	<div class="col-md-8 col-sm-12 col-xs-12">
 		<h3 class="text-success"><i class="fa fa-map-marker"></i> Thêm mới địa điểm</h3>

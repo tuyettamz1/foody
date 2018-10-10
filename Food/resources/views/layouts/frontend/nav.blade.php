@@ -1,4 +1,3 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -16,6 +15,18 @@
 
                 <li><a href="/lien-he"><i class="fa fa-comment"></i> Liên Hệ</a></li>
                 <li><a href="/gioi-thieu"><i class="fa fa-paw"></i> Về chúng tôi</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-th-list"></i> Danh mục <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        @foreach(\App\Category::all() as $category)
+                        <li>
+                            <a href="/dia-diem/category/{{$category->id}}">
+                                <i class="fa fa-paw"></i> {{$category->name}}
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </li>
             </ul>                            
             <ul class="nav navbar-nav navbar-right">
                 @if(!Auth::check())
@@ -26,6 +37,9 @@
                     <a href="/login" class="font-weight-bold"><i class="fa fa-sign-out"></i> Đăng Nhập</a>
                 </li>
                 @else
+                <li>
+                    <a href="/yeu-thich" class="font-weight-bold"><i class="fa fa-heart"></i> <span class="hidden-sm hidden-xs">Địa điểm yêu thích</span></a>
+                </li>
                 <li>
                     <a href="/them-dia-diem" class="font-weight-bold"><i class="fa fa-edit"></i> <span class="hidden-sm hidden-xs">Thêm địa điểm</span></a>
                 </li>
@@ -57,4 +71,3 @@
         </ul>
     </div><!-- /.navbar-collapse -->
 </div><!-- /.container-fluid -->
-</nav>

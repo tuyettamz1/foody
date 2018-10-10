@@ -9,15 +9,20 @@
     @include('layouts.frontend.link')
 </head>
 <body class="nav-md">
-    <div class="container body">
+    <div class="container body" style="min-height: 530px">
         <div class="main_container">
-            @include('layouts.frontend.nav')
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                @include('layouts.frontend.nav')
+            </nav>
             <div class="container">
                 @yield('content')
             </div>
         </div>
     </div>
-    @include('layouts.frontend.footer')
+
+    <footer>
+        @include('layouts.frontend.footer')
+    </footer>
     @yield('script')
 </body>
 </html>

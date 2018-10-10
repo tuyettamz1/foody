@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-<div class="container" style="margin-top: 100px;min-height: 430px">
+<div class="container" style="margin-top: 100px;">
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
             @if ($errors->any())

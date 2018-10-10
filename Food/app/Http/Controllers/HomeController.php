@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Contact;
+use App\Favorite;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -68,6 +70,35 @@ class HomeController extends Controller
     public function about()
     {
         return view('home.about');
+
+         
+        
+    }
+
+
+    public function favorite(Request $request)
+    {
+        
+            $favorite = \App\Favorite::updateOrCreate(
+            ['user_id' => Auth::user()->id, 'place_id' => $request->place_id],
+            ['status' => 1]
+            );
+        
+            return response()->json("success");
+            
+        
+    }
+
+    public function unfavorite(Request $request)
+    {
+        
+        $favorite = \App\Favorite::updateOrCreate(
+            ['user_id' => Auth::user()->id, 'place_id' => $request->place_id],
+            ['status' => 0]
+            );
+            return response()->json("success");
+            
+        
     }
 
 
